@@ -1,0 +1,479 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Definindo as cores principais */
+:root {
+  --primary: #2b6cb0;
+  --secondary: #1c1c1c;
+  --background: #3a3a3a;
+  --text: #ffffff;
+  --light: #2e4a61;
+  --accent: #63b3ed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+.texto {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.texto:hover {
+  transform: scale(1.05);
+}
+
+.cabeça {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.cabeçalho {
+  background: var(--secondary);
+  color: var(--light);
+  padding: 1rem 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+} 
+
+.cabeçalho .cabeça {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background:transparent;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, var(--light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.titulo:hover {
+  transform: scale(1.05);
+}
+
+.barra-navegacao {
+  font-size: 20px;
+}
+
+.barra-navegacao ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.barra-navegacao a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.barra-navegacao a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.barra-navegacao a:hover::after {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header.cabeçalho {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 100;
+  box-shadow: none;
+  border: none;
+}
+
+.corpo {
+  position: relative;
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden; /* Garante que nada saia da área do contêiner */
+  padding-top: 80px;
+}
+
+.video-fundo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz com que o vídeo cubra todo o espaço da seção */
+  z-index: -1; /* Garante que o vídeo fique atrás do conteúdo */
+}
+
+.corpo-content {
+  max-width: 800px;
+  z-index: 1; /* Coloca o conteúdo sobre o vídeo */
+  color: white; /* Define a cor do texto */
+}
+
+.corpo-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.corpo-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.botoes-inferiores {
+  position: absolute;
+  bottom: 80px; /* ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7rem; /* espaço entre os botões */
+}
+
+.botao-inferior {
+  padding: 1.5rem 5rem;
+  background: transparent;
+  color: var(--primary);
+  border: 3px solid  var(--light);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .botoes-inferiores {
+    flex-direction: column;
+    gap: 2rem;
+    bottom: 40px;
+  }
+
+  .botao-inferior {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  /* Adicionando borda ao menu colapsado */
+  .navbar-collapse {
+    border: none; /* Altere a cor conforme o tema */
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro translúcido */
+    padding: 1rem;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url(img/MENU.png);
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+  }
+
+  .texto-curto {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--light), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* suporte para outros navegadores */
+    color: transparent;
+  }
+}
+
+.botao-inferior:hover {
+  transform: scale(1.05);
+  color: var(--primary);
+}
+
+img.img-fluid {
+  width: 100%;
+  object-fit: cover;
+}
+
+.cabeça span {
+  margin: 0 8px;
+}
+
+.rodapé {
+  background: var(--secondary);
+  color: var(--light);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.95rem;
+}
+
+
+.celula {
+  position: relative; /* necessário para o overlay */
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Imagem de fundo tipo img-fluid */
+.celula .img-fluid {
+  display: block;  /* remove comportamento inline */
+  width: 100%;     /* ocupa toda largura do container */
+  height: auto;    /* mantém proporção original */
+}
+
+/* Overlay do conteúdo */
+.celula .overlay {
+  position: absolute;
+  top: 25%;             /* inicia do topo da imagem */
+  left: 50%;          /* centraliza horizontal */
+  transform: translateX(-50%); /* corrige centralização horizontal */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;  /* distância do topo */
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Card */
+.info-card {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Card títulos e texto */
+.info-card h3 {
+  color: #f6f3e8;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: #f6f3e8;
+}
+.carousel {
+  position: relative;
+  top: 50%;          /* controla a distância do topo do section */
+  left: 45%;
+  transform: translateX(-50%);
+  width: 90%;        /* largura do carrossel */
+  height: 250px;     /* altura do carrossel (ajuste como quiser) */
+  overflow: hidden;  /* evita que a imagem "estoure" pra fora */
+  z-index: 3;
+  border-radius: 10px;
+}
+
+.carousel img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /* a imagem inteira aparece */
+  background-color: #000; /* opcional, se quiser fundo */
+}
+
+
+.carrosel {
+  position: relative; /* necessário para o overlay */
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Imagem de fundo tipo img-fluid */
+.carrosel .img-fluid {
+  display: block;  /* remove comportamento inline */
+  width: 100%;     /* ocupa toda largura do container */
+  height: auto;    /* mantém proporção original */
+}
+
+/* Overlay do conteúdo */
+.carrosel .overlay {
+  position: absolute;
+  top: 25%;             /* inicia do topo da imagem */
+  left: 50%;          /* centraliza horizontal */
+  transform: translateX(-50%); /* corrige centralização horizontal */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;  /* distância do topo */
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Card */
+.info-card-carousel {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid #06232c;
+}
+
+/* Card títulos e texto */
+.info-card-carousel h3 {
+  color: #f6f3e8;
+  margin-bottom: 1rem;  
+}
+
+.info-card-carousel p {
+  color: #f6f3e8
+}
+
+/* Botão */
+.btn-maps {
+  display: block;
+  width: 100%;
+  background-color: #06232c;
+  color: #f6f3e8;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-maps:hover {
+  background-color: #073644;
+}
+.info-card-carousel .celula-foto {
+  display: block;        /* garante quebra de linha */
+  margin: 10px auto;     /* centraliza e dá espaço */
+  width: 100%;           /* ocupa a largura do card */
+  max-width: 60%;      /* controla o tamanho máximo */
+  border-radius: 8px;    /* bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra leve */
+}
+
+.info-card-carousel2 .celula-foto {
+  display: block;        /* garante quebra de linha */
+  margin: 10px auto;     /* centraliza e dá espaço */
+  width: 100%;           /* ocupa a largura do card */
+  max-width: 60%;      /* controla o tamanho máximo */
+  border-radius: 8px;    /* bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra leve */
+}
+/* Card */
+.info-card-carousel2 {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid #06232c;
+}
+
+/* Card títulos e texto */
+.info-card-carousel2 h3 {
+  color: #f6f3e8;
+  margin-bottom: 1rem;  
+}
+
+.info-card-carousel2 p {
+  color: #f6f3e8
+}
+
+
+
+.carrosel2 {
+  position: relative; /* necessário para o overlay */
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Imagem de fundo tipo img-fluid */
+.carrosel2 .img-fluid {
+  display: block;  /* remove comportamento inline */
+  width: 100%;     /* ocupa toda largura do container */
+  height: auto;    /* mantém proporção original */
+}
+
+/* Overlay do conteúdo */
+.carrosel2 .overlay {
+  position: absolute;
+  top: -2%;             /* inicia do topo da imagem */
+  left: 50%;          /* centraliza horizontal */
+  transform: translateX(-50%); /* corrige centralização horizontal */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;  /* distância do topo */
+  box-sizing: border-box;
+  z-index: 2;
+}

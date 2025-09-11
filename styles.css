@@ -1,0 +1,587 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Definindo as cores principais */
+:root {
+  --primary: #a6b0b9;
+  --secondary: #1c1c1c;
+  --background: #3a3a3a;
+  --text: #ffffff;
+  --light: #2e4a61;
+  --accent: #63b3ed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+.texto {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.texto:hover {
+  transform: scale(1.05);
+}
+
+.cabeça {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.cabeçalho {
+  background: var(--secondary);
+  color: var(--light);
+  padding: 1rem 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+} 
+
+.cabeçalho .cabeça {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background:transparent;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, var(--light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.titulo:hover {
+  transform: scale(1.05);
+}
+
+.barra-navegacao {
+  font-size: 20px;
+}
+
+.barra-navegacao ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.barra-navegacao a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.barra-navegacao a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.barra-navegacao a:hover::after {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header.cabeçalho {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 100;
+  box-shadow: none;
+  border: none;
+}
+
+.corpo {
+  position: relative;
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden; /* Garante que nada saia da área do contêiner */
+  padding-top: 80px;
+}
+
+.video-fundo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz com que o vídeo cubra todo o espaço da seção */
+  z-index: -1; /* Garante que o vídeo fique atrás do conteúdo */
+}
+
+.corpo-content {
+  max-width: 800px;
+  z-index: 1; /* Coloca o conteúdo sobre o vídeo */
+  color: white; /* Define a cor do texto */
+}
+
+.corpo-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.corpo-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.botoes-inferiores {
+  position: absolute;
+  bottom: 80px; /* ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7rem; /* espaço entre os botões */
+}
+
+.botao-inferior {
+  padding: 1.5rem 5rem;
+  background: transparent;
+  color: var(--primary);
+  border: 3px solid  var(--light);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .botoes-inferiores {
+    flex-direction: column;
+    gap: 2rem;
+    bottom: 40px;
+  }
+
+  .botao-inferior {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+
+  /* Adicionando borda ao menu colapsado */
+  .navbar-collapse {
+    border: none; /* Altere a cor conforme o tema */
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro translúcido */
+    padding: 1rem;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url(img/MENU.png);
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+  }
+
+  .texto-curto {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--light), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* suporte para outros navegadores */
+    color: transparent;
+  }
+}
+
+.botao-inferior:hover {
+  transform: scale(1.05);
+  color: var(--primary);
+}
+
+img.img-fluid {
+  width: 100%;
+  object-fit: cover;
+}
+
+.cabeça span {
+  margin: 0 8px;
+}
+
+.rodapé {
+  background: var(--secondary);
+  color: var(--light);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.intervalo {
+  padding: 20px;
+  background-color: black;
+}
+
+/*
+.imagem-fundo {
+  background-image: url(img/corpo.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+*/
+#celulas .imagem-container {
+    position: relative; /* AGORA o botão se posiciona em relação a este container */
+    display: inline-block;
+    width: 100%;
+}
+
+#celulas img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#celulas .botao-celula {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+    0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+#celulas .imagem-container {
+    position: relative;
+    display: block; /* era inline-block, agora é block para evitar gaps */
+    width: 100%;
+}
+
+#celulas .botao-celula {
+    display: block; /* para ocupar toda a largura sem gap */
+    line-height: 0; /* remove o espaço causado por altura de linha */
+}
+
+#celulas .botao-celula img {
+    display: block; /* garante que a imagem não crie espaço extra */
+}
+
+/*--------------------------------------------------------------------------*/
+
+
+#ultimo-culto {
+    position: relative; /* Botões vão se posicionar dentro da imagem */
+    display: inline-block;
+    width: 100%;
+}
+
+#ultimo-culto img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.botao-ultimo-culto {
+    position: absolute;
+    bottom: 8%;
+    background-color: transparent;
+    color: white;
+    padding: 5px 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    animation: pulsar 1.5s infinite;
+}
+
+/* Botão 1 no canto esquerdo */
+.botao-ultimo-culto:nth-of-type(1) {
+    left: 15%;
+}
+
+/* Botão 2 no canto direito */
+.botao-ultimo-culto:nth-of-type(2) {
+    right: 15%;
+}
+
+.botao-ultimo-culto:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animação de pulso */
+@keyframes pulsar {
+    0% {
+        scale: 1;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        scale: 1.1;
+        box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        scale: 1;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+#ultimo-culto {
+    position: relative;
+    display: block; /* evita espaçamento extra */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#ultimo-culto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.botao-ultimo-culto img {
+    width: 120px;  /* largura desejada */
+    height: auto;  /* mantém a proporção */
+}
+
+
+.botao-ultimo-culto img {
+    width: 15%;    /* porcentagem em relação à largura da imagem principal */
+    max-width: 120px; /* limite máximo */
+    height: auto;
+}
+
+#pedido-oracao {
+  position: relative; /* garante que o formulário fique sobre a imagem */
+}
+
+#pedido-oracao .form-container {
+  position: absolute; /* sobre a imagem */
+  top: 55%;           /* centralizado verticalmente */
+  left: 50%;          /* centralizado horizontalmente */
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, #06232c 25%, #f6f3e8 100%);
+  padding: 3%;
+  border-radius: 2%;
+  max-width: 90%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#pedido-oracao .form-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+#pedido-oracao .form-container input,
+#pedido-oracao .form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #3a4c88;
+  font-size: 16px;
+}
+
+#pedido-oracao .form-container button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #0e4455;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+#pedido-oracao .form-container button:hover {
+  background-color: #051220;
+}
+.form-container h2 {
+  text-align: center;      
+  font-size: 2.5vw;        
+  color: #f6f3e8;          
+  font-family: 'Playfair Display', serif;  /* sua fonte atual */
+  margin-bottom: 2%;       
+  font-weight: 300;        /* fonte mais fina */
+  text-transform: uppercase; 
+}
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 1%;          
+  border-radius: 0.5%;
+  border: 0.1em solid #ccc;
+  font-size: 1.2vw;    
+  background-color: #f6f3e8; /* cor de fundo desejada */
+  color: #06232c;           /* cor do texto dentro do campo */
+}
+
+.visite-nos {
+  position: relative; /* necessário para o overlay */
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Imagem de fundo tipo img-fluid */
+.visite-nos .img-fluid {
+  display: block;  /* remove comportamento inline */
+  width: 100%;     /* ocupa toda largura do container */
+  height: auto;    /* mantém proporção original */
+}
+
+/* Overlay do conteúdo */
+.visite-nos .overlay {
+  position: absolute;
+  top: 15%;             /* inicia do topo da imagem */
+  left: 50%;          /* centraliza horizontal */
+  transform: translateX(-50%); /* corrige centralização horizontal */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;  /* distância do topo */
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+
+/* Card */
+.info-card {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid #051220;
+}
+
+/* Card títulos e texto */
+.info-card h3 {
+  color: #06232c;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: #06232c;
+}
+
+/* Botão */
+.btn-maps {
+  display: block;
+  width: 100%;
+  background-color: #06232c;
+  color: #f6f3e8;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-maps:hover {
+  background-color: #051220;
+}
+
+/* Mapa */
+.map-container {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 2px solid #06232c;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
